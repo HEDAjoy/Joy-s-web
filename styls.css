@@ -5,7 +5,7 @@
 
 body {
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(nature.jpeg);
+    background-color: #2b5540;
     background-position: center;
     background-size: cover;
     height: 100vh;
@@ -14,11 +14,15 @@ body {
 }
 
 .navbar {
-    width: 1900px;
+    width: 100%;
     height: 75px;
     margin: auto;
     margin-top: 10px;
     background-color: #398556;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .icon {
@@ -78,8 +82,16 @@ ul li a:hover{
     height: 70px;
     float: left;
     margin-left: 50px;
+    flex: 1; /* Allows the title to take available space */
+    text-align: center;
+    padding: 0 10px; /* Adds spacing */
+    min-width: 0; /* Prevents overflow */
+    overflow: hidden; /* Ensures it doesn’t break layout */
+    text-overflow: ellipsis; /* Adds "..." if text is too long */
+    white-space: nowrap; 
     
 }
+
 
 .title-name{
     text-align: center;
@@ -101,4 +113,56 @@ ul li a:hover{
 .icons i{
    margin-right: 30px; 
    font-size: 30px;
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .icons {
+        margin-top: 10px;
+    }
+}
+
+.about-container {
+    display: flex;
+    align-items: center; /* Align image and text vertically */
+    gap: 20px; /* Add spacing between image and text */
+    padding: 20px;
+    max-width: 800px; /* Adjust width as needed */
+}
+
+.image-container {
+    position: absolute;
+    top: 150px;/* Adjust for spacing from the top */
+    left: 50px; /* Adjust for spacing from the left */
+    border-radius: 50%; /* Makes the image round */
+    overflow: hidden; /* Ensures the image stays within the rounded border */
+    width: 500px; /* Adjust size as needed */
+    height: 500px; /* Keep width and height equal for a perfect circle */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container */
+}
+
+.about-text h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.5;
 }
